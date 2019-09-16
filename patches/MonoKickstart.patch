@@ -57,7 +57,7 @@ index c3659c4..d61cf61 100755
 -		./kick.bin.x86_64 $@
 +	if [ "$ARCH" == "aarch64" ]; then
 +		./kick.bin.aarch64 "$@"
-+	elif [ "$ARCH" == "armv*" ]; then
++	elif [[ "$ARCH" == armv* ]]; then
 +		./kick.bin.armhf "$@"
 +	elif [ "$ARCH" == "x86_64" ]; then
 +		./kick.bin.x86_64 "$@"
