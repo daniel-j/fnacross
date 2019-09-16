@@ -25,9 +25,10 @@ replacements="
 sed "$replacements" Dockerfile.in | docker build --force-rm=true --rm -t "$imagename" -
 
 mkdir -pv $shortname/{prefix,sources}
-cp tasks.sh $shortname
 
 # ./dl.sh --extract "$shortname/sources"
+
+cp tasks.sh $shortname
 
 docker run --rm -it \
     -v "$(realpath $shortname):/fnacross" \
