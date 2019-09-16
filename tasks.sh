@@ -123,15 +123,15 @@ task_monokickstart() {
 	tput sgr0
 	cd "$SRC/MonoKickstart"
 
-	cp -v "$SRC/mono/mono/mini/.libs/libmonosgen-2.0.a" .
+	cp -v "$PREFIX/lib/libmonosgen-2.0.a" .
 
 	rm -rf build
 	mkdir -p build
 	cd build
-	CFLAGS=-I$SRC/mono cmake .. -DCMAKE_BUILD_TYPE=Release
+	CFLAGS=-I$SRC/Mono cmake .. -DCMAKE_BUILD_TYPE=Release
 	make $makearg
 	install -v -p -D -t "$PRECOMPILED" kick.bin.*
-	install -v -p -D -t "$PRECOMPILED" "$SRC/Kick"
+	install -v -p -D -t "$PRECOMPILED" "../precompiled/Kick"
 
 	install -v -p -D -m644 "$PREFIX/etc/mono/4.5/machine.config" "$PRECOMPILED/monomachineconfig"
 	install -v -p -D -m644 "$PREFIX/etc/mono/config" "$PRECOMPILED/monoconfig"
