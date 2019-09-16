@@ -115,23 +115,6 @@ task_mono() {
 	./configure --prefix="$PREFIX" --with-mcs-docs=no
 	make $makearg
 	make install
-
-	install -v -p -D -m644 "$PREFIX/etc/mono/4.5/machine.config" "$PRECOMPILED/monomachineconfig"
-	install -v -p -D -m644 "$PREFIX/etc/mono/config" "$PRECOMPILED/monoconfig"
-	install -v -p -D -t "$PRECOMPILED" \
-		"$PREFIX/lib/mono/4.5/Mono.Posix.dll" \
-		"$PREFIX/lib/mono/4.5/Mono.Security.dll" \
-		"$PREFIX/lib/mono/4.5/System.Configuration.dll" \
-		"$PREFIX/lib/mono/4.5/System.Core.dll" \
-		"$PREFIX/lib/mono/4.5/System.Data.dll" \
-		"$PREFIX/lib/mono/4.5/System.Drawing.dll" \
-		"$PREFIX/lib/mono/4.5/System.Numerics.dll" \
-		"$PREFIX/lib/mono/4.5/System.Runtime.Serialization.dll" \
-		"$PREFIX/lib/mono/4.5/System.Security.dll" \
-		"$PREFIX/lib/mono/4.5/System.Xml.Linq.dll" \
-		"$PREFIX/lib/mono/4.5/System.Xml.dll" \
-		"$PREFIX/lib/mono/4.5/System.dll" \
-		"$PREFIX/lib/mono/4.5/mscorlib.dll"
 }
 
 task_monokickstart() {
@@ -149,6 +132,23 @@ task_monokickstart() {
 	make $makearg
 	install -v -p -D -t "$PRECOMPILED" kick.bin.*
 	install -v -p -D -t "$PRECOMPILED" "$SRC/Kick"
+
+	install -v -p -D -m644 "$PREFIX/etc/mono/4.5/machine.config" "$PRECOMPILED/monomachineconfig"
+	install -v -p -D -m644 "$PREFIX/etc/mono/config" "$PRECOMPILED/monoconfig"
+	install -v -p -D -t "$PRECOMPILED" \
+		"$PREFIX/lib/mono/4.5/Mono.Posix.dll" \
+		"$PREFIX/lib/mono/4.5/Mono.Security.dll" \
+		"$PREFIX/lib/mono/4.5/System.Configuration.dll" \
+		"$PREFIX/lib/mono/4.5/System.Core.dll" \
+		"$PREFIX/lib/mono/4.5/System.Data.dll" \
+		"$PREFIX/lib/mono/4.5/System.Drawing.dll" \
+		"$PREFIX/lib/mono/4.5/System.Numerics.dll" \
+		"$PREFIX/lib/mono/4.5/System.Runtime.Serialization.dll" \
+		"$PREFIX/lib/mono/4.5/System.Security.dll" \
+		"$PREFIX/lib/mono/4.5/System.Xml.Linq.dll" \
+		"$PREFIX/lib/mono/4.5/System.Xml.dll" \
+		"$PREFIX/lib/mono/4.5/System.dll" \
+		"$PREFIX/lib/mono/4.5/mscorlib.dll"
 }
 
 task_fna() {
